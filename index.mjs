@@ -1,13 +1,13 @@
 import express from 'express';
-import { postFunc } from './post.mjs';
-import { getFunc } from './get.mjs';
-import { getIdFunc } from './getId.mjs';
+import { post } from './post.mjs';
+import { get } from './get.mjs';
+import { getId } from './getId.mjs';
 import bodyParser from 'body-parser';
 
 const app = express()
 app.use(bodyParser.json());
 
-app.get('/', getFunc)
-app.get('/test/:id', getIdFunc)
-app.post('/', postFunc);
+app.get('/', get)
+app.get('/test/:id', getId)
+app.post('/', post);
 app.listen(3001, () => console.log('server ready'))

@@ -1,4 +1,4 @@
-export const postFunc = (req, res) => {
+export const post = (req, res) => {
     res.type('json');
     const {name, age} = req.body;
 res.send({

@@ -1,4 +1,4 @@
-export const getIdFunc = async (req, res) => {
+export const getId = async (req, res) => {
   async function getData() {
     const url = "https://sequelizedvdsnew.simoncobb.co.uk/dvds";
     try {
