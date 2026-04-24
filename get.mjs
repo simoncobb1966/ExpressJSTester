@@ -6,3 +6,4 @@ export const get = (req, res) => {
     color2: color2,
   });
 };
+

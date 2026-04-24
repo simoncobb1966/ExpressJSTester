@@ -1,4 +1,6 @@
 export const getId = async (req, res) => {
+  res.type("json");
+
   async function getData() {
     const url = "https://sequelizedvdsnew.simoncobb.co.uk/dvds";
     try {
@@ -14,16 +16,15 @@ export const getId = async (req, res) => {
     }
   }
 
-  res.type("json");
   const { id } = req.params;
   const response = await getData();
   if (!response && !response?.rows) {
-    res.status(404).send({error: 'No DVDs found'})
+    res.status(404).send({ error: "No DVDs found" });
   }
   const dvds = response.rows;
   const selectedDvd = dvds.find((dvd) => dvd.id === parseInt(id));
   if (!selectedDvd) {
-    res.status(404).send({error: 'ID not valid found'})
+    res.status(404).send({ error: "ID not valid found" });
   }
 
   res.send({ ...selectedDvd });
